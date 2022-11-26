@@ -11,11 +11,11 @@ const reducer = (state = {}, action) => {
         ...state,
         tags: action.payload[0].tags,
         searchInput: "",
+        isSearchVisible: false,
       };
     case HOME_PAGE_UNLOADED:
       return {};
     case UPDATE_FIELD_HOME_PAGE:
-      console.log(action);
       return { ...state, [action.key]: action.value };
     default:
       return state;

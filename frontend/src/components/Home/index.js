@@ -17,6 +17,7 @@ const mapStateToProps = (state) => ({
   ...state.home,
   appName: state.common.appName,
   token: state.common.token,
+  isSearchVisible: state.home.isSearchVisible,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -48,7 +49,11 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-page">
-        <Banner onUpdateField={this.props.onUpdateField} />
+        <Banner
+          onUpdateField={this.props.onUpdateField}
+          isSearchVisible={this.props.isSearchVisible}
+          searchInput={this.props.searchInput}
+        />
 
         <div className="container page">
           <Tags tags={this.props.tags} onClickTag={this.props.onClickTag} />
