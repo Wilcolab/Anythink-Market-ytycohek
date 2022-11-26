@@ -61,6 +61,7 @@ const TagFilterTab = (props) => {
 const mapStateToProps = (state) => ({
   ...state.itemList,
   tags: state.home.tags,
+  searchInput: state.home.searchInput,
   token: state.common.token,
 });
 
@@ -70,6 +71,14 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const MainView = (props) => {
+  const items =
+    props.searchInput?.length > 0
+      ? props.items.filter(({ title }) =>
+          title.toLowerCase().includes(props.searchInput)
+        )
+      : props.items;
+  const itemsCount = items?.length;
+
   return (
     <div>
       <div className="feed-toggle">
@@ -88,9 +97,9 @@ const MainView = (props) => {
 
       <ItemList
         pager={props.pager}
-        items={props.items}
+        items={items}
         loading={props.loading}
-        itemsCount={props.itemsCount}
+        itemsCount={itemsCount}
         currentPage={props.currentPage}
       />
     </div>
