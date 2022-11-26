@@ -79,6 +79,31 @@ const MainView = (props) => {
       : props.items;
   const itemsCount = items?.length;
 
+  const customNotFoundTextBox = (
+    <div
+      id="empty"
+      className="jumbotron"
+      style={{
+        backgroundColor: "#662d85",
+        opacity: "0.8",
+        textAlign: "center",
+        width: "35rem",
+        marginTop: "1rem",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
+      <i class="bi bi-emoji-frown" style={{ fontSize: "3rem" }}></i>
+      <p>
+        No items found for "<strong>{props.searchInput}</strong>".
+      </p>
+    </div>
+  );
+
+  if (itemsCount === 0 && props.searchInput !== "") {
+    return customNotFoundTextBox;
+  }
+
   return (
     <div>
       <div className="feed-toggle">
@@ -101,6 +126,7 @@ const MainView = (props) => {
         loading={props.loading}
         itemsCount={itemsCount}
         currentPage={props.currentPage}
+        customNotFound={customNotFoundTextBox}
       />
     </div>
   );
