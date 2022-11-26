@@ -81,6 +81,7 @@ const MainView = (props) => {
 
   const customNotFoundTextBox = (
     <div
+      id="empty"
       className="jumbotron"
       style={{
         backgroundColor: "#662d85",
