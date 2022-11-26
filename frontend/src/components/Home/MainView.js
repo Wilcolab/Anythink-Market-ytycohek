@@ -100,7 +100,7 @@ const MainView = (props) => {
     </div>
   );
 
-  if (itemsCount === 0) {
+  if (itemsCount === 0 && props.searchInput !== "") {
     return customNotFoundTextBox;
   }
 
