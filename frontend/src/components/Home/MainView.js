@@ -71,7 +71,12 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const MainView = (props) => {
-  const items = props.searchInput?.length > 0 ? props.items.filter(({ title }) => title.toLowerCase().includes(props.searchInput)) : props.items;
+  const items =
+    props.searchInput?.length > 0
+      ? props.items.filter(({ title }) =>
+          title.toLowerCase().includes(props.searchInput)
+        )
+      : props.items;
   const itemsCount = items?.length;
 
   return (

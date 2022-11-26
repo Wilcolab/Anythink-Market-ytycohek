@@ -1,4 +1,8 @@
-import { HOME_PAGE_LOADED, HOME_PAGE_UNLOADED, UPDATE_FIELD_HOME_PAGE } from "../constants/actionTypes";
+import {
+  HOME_PAGE_LOADED,
+  HOME_PAGE_UNLOADED,
+  UPDATE_FIELD_HOME_PAGE,
+} from "../constants/actionTypes";
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
@@ -6,7 +10,7 @@ const reducer = (state = {}, action) => {
       return {
         ...state,
         tags: action.payload[0].tags,
-        searchInput: ""
+        searchInput: "",
       };
     case HOME_PAGE_UNLOADED:
       return {};
